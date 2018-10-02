@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Demo KelQuartier</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+	<!--On ajout la bibliothèque Three.js-->
+	<script src="./js/lib/three.js"></script>
+	<!--On ajout la bibliothèque Three.js-->
+	<script src="./js/lib/three-extrude.js"></script>
+
+	<!--On ajout un module qui permet de détecter si le navigateur est compatible-->
+	<script src="./js/Detector.js"></script>
+
+	<!--On ajout un module qui permet d'avoir le controle sur la caméra-->
+	<script src="./js/api/v1/MapNavigation.js"></script>
+	<script src="./js/api/v1/controls/EarthControls.js"></script>
+	<script src="./js/api/v1/controls/TransformControls.js"></script>
+
+	<!--On ajout un module qui permet d'avoir le controle sur la caméra-->
+	<!--<script src="./js/dxf-parser.js"></script>-->
+
+	<!--On ajout un module qui permet d'avoir le controle sur la caméra-->
+	<!--<script src="./js/three-dxf.js"></script>-->
+
+	<!--Getion du plan-->
+	<script src="./js/api/v1/Map.js"></script>
+
+	<!--Parser Open Street Map-->
+	<!--<script src="./js/api/v1/OSMLoader.js"></script>-->
+	
+	<!--Decoupage des parcelles-->
+	<script src="./js/api/v1/Slicer.js"></script>
+
+	<!--Gestion du rendu de la vue-->
+	<script src="./js/api/v1/Viewport.js"></script>
+
+	<!--Gestion des fonctionnalités de la vue-->
+	<script src="./js/api/v1/Editor.js"></script>
+
+	<!--Gestion AJAX-->
+	<script src="./js/api/v1/Service.js"></script>
+	
+	<!--Infos debug-->
+	<script src="./js/api/v1/Infos.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!--Tile loader-->
+	<script src="/js/TileLoader.js" type="text/javascript"></script>
+	<!--<script src="/js/lib/OpenEarthView.js" type="text/javascript"></script>-->
+	<script src="/js/RequestManager.js" type="text/javascript"></script>
+	
+	<script src="/js/OverpassBuilding.js" type="text/javascript"></script>
+	
+	<!--Gestionnaire de la donnée kelquartier-->
+	<script src="/js/api/v1/CityManager.js"></script>
+	
+	<script src="/js/api/v1/ParcelLayer.js"></script>
+	
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+	<header>
+		<div class="navbar navbar-default">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+				<a class="navbar-brand" href="#">Demo Kelquartier</a>
+			</div>
+			<!--<form class="navbar-form navbar-right">-->
+			<!--	<div class="form-group">-->
+			<!--		<input type="text" class="form-control" placeholder="Search">-->
+			<!--	</div>-->
+			<!--	<button type="submit" class="btn btn-default">Submit</button>-->
+			<!--</form>-->
+			<ul class="nav navbar-nav navbar-form navbar-right">
+				<li>
+					<!--<div class="form-inline">-->
+					<!--	<label>Calques :</label>-->
+					<!--	<select id="layerSelector" onChange="setLayer()" class="form-control">-->
+					<!--		<option value="building" >Existant</option>-->
+					<!--		<option value="parcel" selected>Parcelles</option>-->
+					<!--	</select>-->
+						
+					<!--</div>-->
+				</li>
+				<li>
+					<!--<div class="form-inline">-->
+					<!--	<label>Afficher les parcelles </label>-->
+					<!--	<input type="checkbox" onClick="setLayer()" class="form-control" id="parcelCheckbox"/>-->
+					<!--</div>-->
+				</li>
+				<!--<li><button type="submit" class="btn btn-default" onClick="loadFile()">Submit</button></li>-->
+			</ul>
+		</div>
+	</header>
+<div id="tipsbox">
+	<!--<strong>Tips: Comment modifier l'emprise du bâtiment ?</strong>-->
+	<!--<ul>-->
+	<!--	<li>1. Cliquer sur modifier l'emprise pour cacher la construction.</li>-->
+	<!--	<li>2. Sélectionner une boîte rouge en cliquant dessus</li>-->
+	<!--	<li>3. Déplacer la boîte dans la limite de l'emprise autorisée</li>-->
+	<!--	<li>4. Cliquer sur le bouton construire pour voir le résultat</li>-->
+	<!--</ul>-->
+	<strong>Tips: Comment modifier l'emprise du bâtiment ?</strong>
+	<ul>
+		<li>1. Sélectionner une boîte rouge en cliquant dessus</li>
+		<li>2. Déplacer la boîte dans la limite de l'emprise autorisée</li>
+	</ul>
+</div>
+
+	<div id="viewer">
+		
+	</div>
+
+<!--<div id="toolbar">-->
+<!--	<div class="col-md-3 col-md-offset-9">-->
+<!--		<button class="btn btn-success btn-xs" id="hideButton" onClick="editor.hideBuild()">Modifier l'emprise</button>-->
+<!--		<button class="btn btn-primary btn-xs" id="extrudeButton" onClick="editor.extrudeShape()">Construire</button>-->
+<!--	</div>-->
+<!--</div>-->
+	<div id="sidebar">
+		<div class="form-inline">
+			<!--<label>parcelle :</label>-->
+			<!--<select id="parcelSelector" onChange="editor.selectParcel()" class="form-control">-->
+			<!--</select>-->
+			<!--<button onClick="editor.changeLinear()" class="btn btn-default">Changer</button>-->
+		</div>
+		<form>
+			<h4>Parcelle</h4>
+			<!--<div class="form-group">-->
+			<!--	<label for="parcelName">Identifiant</label>-->
+			<!--	<input type="text" class="form-control" id="parcelName" placeholder="Identifiant">-->
+			<!--</div>-->
+			<!--<div class="form-group">-->
+			<!--	<label for="inputSurface">Surface</label>-->
+			<!--	<input type="number" class="form-control" id="inputSurface" placeholder="Surface">-->
+			<!--</div>-->
+			<ul>
+				<li>
+					<p><strong>Identifiant :</strong><span id="parcelName"></span></p>
+				</li>
+				<li>
+					<p><strong>Surface:</strong><span id="inputSurface"></span> m2</p>
+				</li>
+			</ul>
+			<h4>Bâtiment</h4>
+			<div class="form-group">
+				<ul>
+					<li>
+						<p><strong>Emprise autorisée :</strong><span id="maxFootprintSurface"></span> m2</p>
+					</li>
+					<li>
+						<p><strong>Emprise au sol :</strong><span id="footprintSurface"></span> m2</p>
+					</li>
+					<li>
+						<p><strong>Surface totale :</strong><span id="buildingSurface"></span> m2</p>
+					</li>
+					<li>
+						<p><strong>Hauteur totale :</strong><span id="buildingHeight"></span> m2</p>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="form-group col-md-6">
+				<label for="inputHeight">Hauteur étage</label>
+				<input type="number" class="form-control" id="inputHeight" placeholder="Height" onChange="editor.updateParcel()">
+			</div>
+			<div class="form-group col-md-6">
+				<label for="inputGroundHeight">Hauteur RDC</label>
+				<input type="number" class="form-control" id="inputGroundHeight" placeholder="Ground Height" onChange="editor.updateParcel()">
+			</div>
+			
+			<div class="form-group">
+				<label for="inputFloors">Nb. d'étages</label>
+				<input type="number" class="form-control" id="inputFloors" placeholder="Floors" onChange="editor.updateParcel()">
+			</div>
+			
+			<h4 class="col-md-12">Toiture</h4>
+			<div class="form-group">
+				<label>Activer</label>
+				<input type="checkbox" name="roofEnabled" id="roofEnabled" value="true" onChange="editor.updateParcel()">
+			</div>
+			<div class="form-group">
+				<label>Habitable</label>
+				<input type="checkbox" name="roofIncluded" id="roofIncluded" value="true" onChange="editor.updateParcel()">
+			</div>
+			<div class="form-group">
+				<div  class="form-group col-md-6">
+					<label>Hauteur</label>
+					<input type="number" name="roofHeight" id="roofHeight" value="0" class="form-control"  onChange="editor.updateParcel()">
+				</div>
+				<div class="form-group col-md-6">
+					<label>Inclinaison</label>
+					<input type="number" name="roofAngle" id="roofAngle" value="0" class="form-control" onChange="editor.updateParcel()">
+				</div>
+			</div>
+		</form>
+	</div>
+	<script type="x-shader/x-vertex" id="vertexShader">
+		varying vec3 vWorldPosition; 
+		void main() { 
+			vec4 worldPosition = modelMatrix * vec4( position, 1.0 ); 
+			vWorldPosition = worldPosition.xyz; 
+			gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 ); 
+			
+		}
+	</script>
+
+	<script type="x-shader/x-fragment" id="fragmentShader">
+		uniform vec3 topColor; 
+		uniform vec3 bottomColor; 
+		uniform float offset; 
+		uniform float exponent; 
+		varying vec3 vWorldPosition; 
+		void main() { 
+			float h = normalize( vWorldPosition + offset ).z; 
+			gl_FragColor = vec4( mix( bottomColor, topColor, max( pow( max(
+		h , 0.0), exponent ), 0.0 ) ), 1.0 ); 
+		}
+	</script>
+	<script src="./js/api/v1/drawer.js"></script>
+
+</body>
+
+</html>

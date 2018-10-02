@@ -1,0 +1,121 @@
+body {
+	font-size: 13px;
+	background-color: gray;
+}
+/*h2 {*/
+/*	float:left;*/
+/*}*/
+/*button, h4, select {*/
+/*	margin: 15px;*/
+/*	float:right;*/
+/*}*/
+#canvas{
+    /*position: absolute;*/
+    /*top:50px;*/
+    /*right:200px;*/
+    /*left:0;*/
+    /*bottom:0;*/
+    
+	position: absolute;
+    top:50px;
+    right:250px;
+    left:0;
+    bottom:0;
+}
+#viewer {
+    position: absolute;
+    top: 50px;
+    right:0px;
+    bottom:0;
+    left:0;
+    height: 100%
+}
+#toolbar {
+    position: absolute;
+    top: 50px;
+    right:250px;
+    left:0;
+    height: 30px;
+    padding-top: 5px;
+    background-color: #bbb
+}
+#tipsbox {
+    position: absolute;
+    top: 90px;
+    left:20px;
+    width: 200px;
+    z-index: 999;
+}
+canvas {
+    width:100%;
+    height: 100%
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style-type: none;
+    padding-left: 0;
+}
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 0;
+}
+#sidebar{
+    position: absolute;
+    padding:15px;
+    top: 55px;
+    width:300px;
+    right:0;
+    bottom:0;
+    z-index:999;
+    /*height:100%;*/
+    display:block;
+    background-color: transparent
+}
+#parcelListContainer{
+    height: 150px;
+    padding:15px 0 15px 15px;
+    overflow-y: scroll;
+    border-bottom: 1px solid #eee;
+}
+#totalSurfaceContainer{
+    padding:5px 0 5px 15px;
+    line-height:30px;
+}
+#editorPanel h4{
+    
+}
+.parcelList p {
+    
+    margin-bottom: 2px;
+    
+}
+.parcelList {
+    
+    margin-bottom: 7px;
+    
+}
+.sm-padding {
+    padding: 5px 5px;
+}
+.no-padding {
+    padding:0!important;
+}
+.ergo-controls {
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    z-index: 100500;
+}
+.bttn {
+    width: 120px;
+    display: inline-block;
+    padding: 20px 15px;
+    cursor: pointer;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    text-align: center;
+}

@@ -1,0 +1,95 @@
+{
+  "shaders": [
+    "picking",
+    "buildings",
+    "buildings_with_shadows",
+    "markers_simple",
+    "markers",
+    "markers_picking",
+    "basemap",
+    "basemap_with_shadows",
+    "texture",
+    "depth_normal",
+    "ambient_from_depth",
+    "flat_color",
+    "horizon",
+    "blur"
+  ],
+
+  "libs": [
+    "node_modules/qolor/dist/Qolor.debug.js",
+    "node_modules/suncalc/suncalc.js",
+    "lib/triangulateSVG.js",
+    "lib/earcut.custom.js"
+  ],
+
+  "workers": {
+    "feature": [
+      "src/Request.js",
+      "node_modules/qolor/dist/Qolor.debug.js",
+      "src/OBJ.js",
+      "lib/earcut.custom.js",
+      "src/triangulate/index.js",
+      "src/triangulate/roofs/index.js",
+      "src/triangulate/roofs/Tools.js",
+      "src/triangulate/split.js",
+      "src/triangulate/geometry/vec3.js",
+      "src/triangulate/geometry/vec2.js",
+      "src/features/worker.js"
+    ]
+  },
+
+  "src": [
+    "src/glx/index.js",
+    "src/glx/Buffer.js",
+    "src/glx/Framebuffer.js",
+    "src/glx/Shader.js",
+    "src/glx/Matrix.js",
+    "src/glx/texture/index.js",
+    "src/glx/texture/Image.js",
+    "src/glx/texture/Data.js",
+
+    "src/Collection.js",
+
+    "src/workers/index.js",
+    "src/workers/Wrapper.js",
+
+    "src/icons/index.js",
+    "src/icons/Icon.js",
+    "src/markers/Marker.js",
+
+    "src/index.js",
+    "src/Events.js",
+
+    "src/variables.js",
+    "src/Request.js",
+    "src/util.js",
+
+    "src/layer/Grid.js",
+    "src/layer/Tile.js",
+    "src/layer/BitmapTile.js",
+    "src/layer/GeoJSONTile.js",
+
+    "src/features/index.js",
+    "src/features/Feature.js",
+
+    "src/mesh/MapPlane.js",
+
+    "src/geometry.js",
+
+    "src/view/index.js",
+    "src/view/Picking.js",
+    "src/view/Sun.js",
+    "src/view/Buildings.js",
+    "src/view/Markers.js",
+    "src/view/MarkersSimple.js",
+    "src/view/MapShadows.js",
+    "src/view/Basemap.js",
+    "src/view/HudRect.js",
+    "src/view/DepthNormal.js",
+    "src/view/AmbientMap.js",
+    "src/view/Overlay.js",
+    "src/view/Horizon.js",
+    "src/view/Blur.js"
+  ]
+}

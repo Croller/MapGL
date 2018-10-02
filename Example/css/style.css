@@ -1,0 +1,333 @@
+body {
+	font-size: 13px;
+	background-color: gray;
+}
+/*h2 {*/
+/*	float:left;*/
+/*}*/
+/*button, h4, select {*/
+/*	margin: 15px;*/
+/*	float:right;*/
+/*}*/
+.f4map .f4map-nav .f4map-zoomout, .f4map .f4map-nav .f4map-3D-2D-to3D {
+    border-top: 1px solid #e4e4e4;
+}
+.f4map .f4map-zoom {
+    display: inline-block;
+}
+.f4map .f4map-nav {
+    width: 50px;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.f4map .f4map-nav .f4map-geoloc {
+    font-size: 22px;
+}
+
+.f4map .f4map-nav .f4map-zoomin, .f4map .f4map-nav .f4map-zoomout, 
+.f4map .f4map-nav .f4map-3D-2D-to2D, .f4map .f4map-nav .f4map-3D-2D-to3D, 
+.f4map .f4map-nav .f4map-compass, .f4map .f4map-nav .f4map-mode, 
+.f4map .f4map-nav .f4map-geoloc {
+    background: #fff;
+    color: #54677d;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    border-bottom: 0;
+}
+.f4map .f4map-3D-2D {
+    display: inline-block;
+    margin: 2px;
+}
+.f4map .f4map-compass {
+    position: relative;
+    margin: 2px 0;
+    background: #333;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.f4map .f4map-compass-left {
+    top: 10px;
+    left: -2px;
+}
+
+.f4map .f4map-compass-right {
+    top: 10px;
+    right: -2px;
+}
+
+.f4map .f4map-compass-top {
+    left: 15px;
+    top: -5px;
+}
+
+.f4map .f4map-compass-bottom {
+    left: 15px;
+    bottom: -5px;
+}
+
+.f4map .f4map-compass-left, .f4map .f4map-compass-right, .f4map .f4map-compass-top, .f4map .f4map-compass-bottom {
+    opacity: .5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: none;
+    position: absolute;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 28px;
+    background-image: url('/images/compass_nav_new.png');
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    background-size: 100%;
+}
+
+.f4map .f4map-3D-2D-to2D, .f4map .f4map-3D-2D-to3D {
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: none;
+    display: inline-block;
+    width: 30px;
+    height: 28px;
+    font-size: 14px;
+    line-height: 28px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background: #333;
+    color: #999;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 30px;
+    height: 28px;
+    cursor: pointer;
+}
+.f4map .f4map-zoomout {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: none;
+    display: inline-block;
+    width: 30px;
+    height: 28px;
+    font-size: 14px;
+    line-height: 28px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background: #333;
+    color: #999;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    line-height: 1;
+    margin-bottom: 2px;
+    border-top: 1px solid rgba(0,0,0,0.5);
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.f4map .f4map-zoomin {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: none;
+    display: inline-block;
+    width: 30px;
+    height: 28px;
+    font-size: 14px;
+    line-height: 28px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background: #333;
+    color: #999;
+    line-height: 1;
+    margin-top: 2px;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+.f4map-compass-center {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: none;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 15px;
+    font-size:20px;
+    cursor: pointer;
+    -webkit-transition: all ease 0.2s;
+    -moz-transition: all ease 0.2s;
+    -o-transition: all ease 0.2s;
+    -ms-transition: all ease 0.2s;
+    transition: all ease 0.2s;
+    overflow: hidden;
+}
+.f4map-mode {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: none;
+    display: inline-block;
+    width: 30px;
+    height: 28px;
+    font-size: 14px;
+    line-height: 28px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background: #333;
+    color: #999;
+    user-select: none;
+    border-radius: 4px;
+    width: auto;
+    padding: 0 10px;
+    overflow: visible;
+    white-space: nowrap;
+    user-select: none;
+    font-size: 14px;
+    text-align: center;
+    margin: 2px;
+    position: absolute;
+    top: 0;
+    left: 43px;
+    line-height: 29px;
+    vertical-align: baseline;
+    height: 28px;
+}
+
+#canvas{
+    /*position: absolute;*/
+    /*top:50px;*/
+    /*right:200px;*/
+    /*left:0;*/
+    /*bottom:0;*/
+    
+	position: absolute;
+    top:50px;
+    right:250px;
+    left:0;
+    bottom:0;
+}
+#viewer {
+    position: absolute;
+    top: 50px;
+    right:0px;
+    bottom:0;
+    left:0;
+    height: 100%
+}
+#toolbar {
+    position: absolute;
+    top: 50px;
+    right:250px;
+    left:0;
+    height: 30px;
+    padding-top: 5px;
+    background-color: #bbb
+}
+#tipsbox {
+    position: absolute;
+    top: 90px;
+    left:20px;
+    width: 200px;
+    z-index: 999;
+}
+canvas {
+    width:100%;
+    height: 100%
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style-type: none;
+    padding-left: 0;
+}
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 0;
+}
+#sidebar{
+    position: absolute;
+    padding:15px;
+    top: 55px;
+    width:300px;
+    right:0;
+    bottom:0;
+    z-index:999;
+    /*height:100%;*/
+    display:block;
+    background-color: transparent
+}
+#parcelListContainer{
+    height: 150px;
+    padding:15px 0 15px 15px;
+    overflow-y: scroll;
+    border-bottom: 1px solid #eee;
+}
+#totalSurfaceContainer{
+    padding:5px 0 5px 15px;
+    line-height:30px;
+}
+#editorPanel h4{
+    
+}
+.parcelList p {
+    
+    margin-bottom: 2px;
+    
+}
+.parcelList {
+    
+    margin-bottom: 7px;
+    
+}
+.sm-padding {
+    padding: 5px 5px;
+}
+.no-padding {
+    padding:0!important;
+}
