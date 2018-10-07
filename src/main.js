@@ -5,6 +5,11 @@ import App from './App'
 import routers from './router'
 // import Resource from 'vue-resource'
 
+// assets
+// import * as THREE from 'three'
+// require('@/assets/js/MapControls.js')
+// require('@/three/examples/js/controls/MapControls.js');
+
 // Vue.use(Resource)
 
 Vue.config.productionTip = false
